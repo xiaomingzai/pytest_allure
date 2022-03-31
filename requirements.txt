@@ -1,0 +1,7 @@
+selenium # == 3.141.0
+pytest
+pytest-rerunfailures
+pytest-xdist
+allure-pytest
+PY-YAML
+#pip install -r requirements.txt

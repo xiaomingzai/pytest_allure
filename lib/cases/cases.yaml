@@ -1,0 +1,95 @@
+# 电商项目用例
+#    :代表字典     -代表列表
+loginPage :
+  -
+    title : 登录成功
+    description : 登录成功的测试用例
+    cases :
+      -
+        name : 打开登录页
+        method : geturl
+        url : https://www.acfun.cn/login
+
+#      -
+#        name: 打开登录页
+#        method: geturl
+#        conf: '{
+#          "platformName":"Android",
+#          "platformVersion":"8.2.1",
+#          "deviceName":"",
+#          "appPackage": ""
+#        }'
+
+
+      -
+        click : 切换到账号登录
+        method : click
+        locator : xpath=//*[@id="login-account-switch"]
+
+      -
+        name : 输入用户名
+        method : input
+        locator : xpath=//*[@id="ipt-account-login"]
+        value : 1292510200@qq.com
+
+      -
+        name : 输入密码
+        method : input
+        locator : xpath=//*[@id="ipt-pwd-login"]
+        value : 123456
+
+      -
+        name : 点击登录
+        method : click
+        locator : xpath=//*[@id="form-login"]/div[4]/div
+
+      -
+        name : 等待
+        method : sleep
+        time : 3
+
+
+  -
+    title : 登录失败
+    description : 密码错误导致登录失败的用例
+    cases :
+      -
+        name : 打开登录页
+        method : geturl
+        url : https://www.acfun.cn/login
+
+      -
+        click : 切换到账号登录
+        method : click
+        locator : xpath=//*[@id="login-account-switch"]
+
+      -
+        name : 输入用户名
+        method : input
+        locator : xpath=//*[@id="ipt-account-login"]
+        value : 1292510200@qq.com
+
+      -
+        name : 输入密码
+        method : input
+        locator : xpath=//*[@id="ipt-pwd-login"]
+        value : az124578369
+
+      -
+        name : 点击登录
+        method : click
+        locator : xpath=//*[@id="form-login"]/div[4]/div
+
+      -
+        name : 等待
+        method : sleep
+        time : 3
+
+#userinfo:
+#    title : 登录成功
+#    description : 登录成功的测试用例
+#    cases :
+#      -
+#        name : 打开登录页
+#        method : geturl
+#        url : https://www.acfun.cn/login
