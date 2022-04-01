@@ -11,7 +11,7 @@
 
 from web.webkeys import WebKey
 
-import time, pytest,allure
+import time, pytest,allure,logging
 from lib.cases.params import datas
 
 
@@ -47,6 +47,8 @@ class Test_Commerce:
     def test_login(self,params):
         allure.dynamic.title(params['title'])
         allure.description(params['description'])
+        logger = logging.getLogger()
+        logger.info(params)
         login_cases = params['cases']    #将case.yaml中的cases取出来，得到的是一个字典
         for login_case in login_cases:
             listcase = list(login_case.values())  # 获取字典的列表值
@@ -57,6 +59,10 @@ class Test_Commerce:
                 try:
                     res = self.run_step(func,values)
                 except Exception as err:
+                    logger.error(login_case)
+                    logger.exception(err)
+                    #allure.attach(body, name, attachment_type, extension)
+                    allure.attach(self.web.screenshot(),"失败截图",allure.attachment_type.PNG)
                     pytest.fail('用例执行失败：{}'.format(err))
     def teardown_class(self):
         self.web.quit()
