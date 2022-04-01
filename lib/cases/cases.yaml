@@ -22,7 +22,7 @@ loginPage :
 
 
       -
-        click : 切换到账号登录
+        name : 切换到账号登录
         method : click
         locator : xpath=//*[@id="login-account-switch"]
 
@@ -59,7 +59,7 @@ loginPage :
         url : https://www.acfun.cn/login
 
       -
-        click : 切换到账号登录
+        name : 切换到账号登录
         method : click
         locator : xpath=//*[@id="login-account-switch"]
 
